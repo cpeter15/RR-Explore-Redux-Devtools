@@ -10,10 +10,15 @@ export const todoSlice = ({
     initialState,
     reducers: {
         addTodo: (state, action) => {
-
+            return { items: [...state.items, action.payload] }
         },
         removeTodo: (state, action) => {
-
+            let array = [...state.items]
+            let index = action.payload
+            if (index !== -1) {
+                array.pop()
+                return { items: array }
+            }
         },
         clearTodo: () => {
             return { items: [] }
