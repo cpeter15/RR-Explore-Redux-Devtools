@@ -16,7 +16,7 @@ export const todoSlice = ({
             let array = [...state.items]
             let index = action.payload
             if (index !== -1) {
-                array.pop()
+                array.slice(index, 1)
                 return { items: array }
             }
         },
